@@ -8,6 +8,7 @@ HTML_ARTICLE=${ARTICLE}-download.html
 HTML_ARTICLE_CONVERTED=${ARTICLE}-conv.html
 HTML_ARTICLE_PANDOC=${ARTICLE}.html
 MD_ARTICLE=${ARTICLE}.md
+PDF_ARTICLE=${ARTICLE}.pdf
 DC_METADATA=${ARTICLE}.dc.xml
 
 # download the article and convert it to utf8 encoding
@@ -53,3 +54,7 @@ rm ${HTML_ARTICLE_CONVERTED}
 
 # convert to html
 pandoc ${MD_ARTICLE} -o ${HTML_ARTICLE_PANDOC}
+
+#convert to pdf
+pandoc ${MD_ARTICLE} -o ${PDF_ARTICLE}
+
