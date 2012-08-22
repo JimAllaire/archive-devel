@@ -3,7 +3,7 @@
 set -e
 
 # define article paths
-ARTICLE=$1
+ARTICLE=downloads/$1
 HTML_ARTICLE=${ARTICLE}-download.html
 HTML_ARTICLE_CONVERTED=${ARTICLE}-conv.html
 HTML_ARTICLE_PANDOC=${ARTICLE}.html
