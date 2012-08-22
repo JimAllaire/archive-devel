@@ -1,4 +1,4 @@
 archive-devel
 =============
 
-Development for the Dorothy Day archive projects
+Development for the Dorothy Day archive project.
