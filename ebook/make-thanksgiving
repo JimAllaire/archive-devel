@@ -1,0 +1,3 @@
+#!/bin/bash
+
+./make-ebook thanksgiving 414.md 376.md 351.md 307.md

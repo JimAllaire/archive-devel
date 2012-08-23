@@ -3,3 +3,8 @@
 downloads/
 
 archive-devel.tmproj
+
+ebook/*.pdf
+ebook/*.epub
+ebook/*.html
+

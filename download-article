@@ -26,6 +26,9 @@ cp ${HTML_ARTICLE} ${HTML_ARTICLE_CONVERTED}
 # eliminate standalone P with non-breaking space
 perl -i -pe 's/<[P|p]>&nbsp;<\/[P|p]>//g' ${HTML_ARTICLE_CONVERTED}
 
+# substitute rouge 3/4 symbols with commas
+perl -i -pe 's/ ?<FONT FACE="Symbol">¾<\/FONT>/,/g' ${HTML_ARTICLE_CONVERTED}
+
 # replace <B><P align="CENTER">Foo</P> with h4
 perl -i -pe 's/<b><p align="center">([^<]+)<\/p>/<h4>\1<\/h4>/i' ${HTML_ARTICLE_CONVERTED}
 
