@@ -8,3 +8,4 @@ ebook/*.pdf
 ebook/*.epub
 ebook/*.html
 
+.Rproj.user
