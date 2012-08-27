@@ -11,6 +11,9 @@ MD_ARTICLE=downloads/${ARTICLE}.md
 PDF_ARTICLE=downloads/${ARTICLE}.pdf
 DC_METADATA=downloads/${ARTICLE}.dc.xml
 
+# ensure the downloads directory exists
+mkdir -p downloads
+
 # download the article and convert it to utf8 encoding
 ARTICLE_HTML_URL=
 curl http://www.catholicworker.org/dorothyday/HTMLoutput.cfm?TextID=${ARTICLE} | \
