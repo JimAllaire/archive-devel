@@ -6,9 +6,7 @@ set -e
 ARTICLE=$1
 HTML_ARTICLE=downloads/${ARTICLE}-download.html
 HTML_ARTICLE_CONVERTED=downloads/${ARTICLE}-conv.html
-HTML_ARTICLE_PANDOC=downloads/${ARTICLE}.html
 MD_ARTICLE=downloads/${ARTICLE}.md
-PDF_ARTICLE=downloads/${ARTICLE}.pdf
 DC_METADATA=downloads/${ARTICLE}.dc.xml
 
 # ensure the downloads directory exists
@@ -58,9 +56,6 @@ perl -i -pe 's/^<\/strong><p>/<p>/i' ${HTML_ARTICLE_CONVERTED}
 pandoc ${HTML_ARTICLE_CONVERTED} -o ${MD_ARTICLE}
 rm ${HTML_ARTICLE_CONVERTED}
 
-# convert to html
-pandoc ${MD_ARTICLE} -o ${HTML_ARTICLE_PANDOC}
-
-#convert to pdf
-pandoc ${MD_ARTICLE} -o ${PDF_ARTICLE}
+# update article
+./update-article $ARTICLE
 

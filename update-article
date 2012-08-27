@@ -1,0 +1,16 @@
+#!/bin/bash
+
+set -e
+
+# define article paths
+ARTICLE=$1
+MD_ARTICLE=downloads/${ARTICLE}.md
+HTML_ARTICLE=downloads/${ARTICLE}.html
+PDF_ARTICLE=downloads/${ARTICLE}.pdf
+
+# convert to html
+pandoc ${MD_ARTICLE} -o ${HTML_ARTICLE}
+
+#convert to pdf
+pandoc ${MD_ARTICLE} -o ${PDF_ARTICLE}
+
