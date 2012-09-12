@@ -30,20 +30,20 @@ perl -i -pe 's/<[P|p]>&nbsp;<\/[P|p]>//g' ${HTML_ARTICLE_CONVERTED}
 # substitute rouge 3/4 symbols with commas
 perl -i -pe 's/ ?<FONT FACE="Symbol">¾<\/FONT>/,/g' ${HTML_ARTICLE_CONVERTED}
 
-# replace <B><P align="CENTER">Foo</P> with h2
-perl -i -pe 's/<b><p align="center">([^<]+)<\/p>/<h2>\1<\/h2>/i' ${HTML_ARTICLE_CONVERTED}
+# replace <B><P align="CENTER">Foo</P> with h4
+perl -i -pe 's/<b><p align="center">([^<]+)<\/p>/<h4>\1<\/h4>/i' ${HTML_ARTICLE_CONVERTED}
 
-# replace <p align="center"><b>Funeral</b></p> with h2
-perl -i -pe 's/<p align="center"><b>([^<]+)<\/b><\/p>/<h2>\1<\/h2>/i' ${HTML_ARTICLE_CONVERTED}
+# replace <p align="center"><b>Funeral</b></p> with H4
+perl -i -pe 's/<p align="center"><b>([^<]+)<\/b><\/p>/<h4>\1<\/h4>/i' ${HTML_ARTICLE_CONVERTED}
 
-# replace <P><STRONG><P ALIGN="CENTER">PETER MAURIN 1877-1977</STRONG></P> with h2
-perl -i -pe 's/<strong><p align="center">([^<]+)<\/strong><\/p>/<h2>\1<\/h2>/i' ${HTML_ARTICLE_CONVERTED}
+# replace <P><STRONG><P ALIGN="CENTER">PETER MAURIN 1877-1977</STRONG></P> with h4
+perl -i -pe 's/<strong><p align="center">([^<]+)<\/strong><\/p>/<h4>\1<\/h4>/i' ${HTML_ARTICLE_CONVERTED}
 
-# replace <B><P>The Lesson of Cuba</P> with h2
-perl -i -pe 's/^<b><p>([^<]+)<\/p>/<h2>\1<\/h2>/i' ${HTML_ARTICLE_CONVERTED}
+# replace <B><P>The Lesson of Cuba</P> with H4
+perl -i -pe 's/^<b><p>([^<]+)<\/p>/<h4>\1<\/h4>/i' ${HTML_ARTICLE_CONVERTED}
 
-# replace <p><b>Maryfarm</b></p> with h2
-perl -i -pe 's/^<p><b>([^<]+)<\/b><\/p>/<h2>\1<\/h2>/i' ${HTML_ARTICLE_CONVERTED}
+# replace <p><b>Maryfarm</b></p> with H4
+perl -i -pe 's/^<p><b>([^<]+)<\/b><\/p>/<h4>\1<\/h4>/i' ${HTML_ARTICLE_CONVERTED}
 
 # replace <P ALIGN="CENTER">* * *</P> with HR
 perl -i -pe 's/<p align="center">(\* \* \*)<\/p>/- - -/i' ${HTML_ARTICLE_CONVERTED}
