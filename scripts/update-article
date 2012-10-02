@@ -4,10 +4,11 @@ set -e
 
 # define article paths
 ARTICLE=$1
-MD_ARTICLE=downloads/${ARTICLE}.md
-HTML_ARTICLE=downloads/${ARTICLE}.html
-PDF_ARTICLE=downloads/${ARTICLE}.pdf
-DOCX_ARTICLE=downloads/${ARTICLE}.docx
+ARTICLE_DIR=articles/${ARTICLE}
+MD_ARTICLE=${ARTICLE_DIR}/${ARTICLE}.md
+HTML_ARTICLE=${ARTICLE_DIR}/${ARTICLE}.html
+PDF_ARTICLE=${ARTICLE_DIR}/${ARTICLE}.pdf
+DOCX_ARTICLE=${ARTICLE_DIR}/${ARTICLE}.docx
 
 # convert to html
 pandoc ${MD_ARTICLE} -o ${HTML_ARTICLE}
@@ -17,4 +18,5 @@ pandoc ${MD_ARTICLE} -o ${PDF_ARTICLE}
 
 #convert to docx
 pandoc ${MD_ARTICLE} -o ${DOCX_ARTICLE}
+
 

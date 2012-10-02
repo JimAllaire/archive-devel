@@ -4,13 +4,14 @@ set -e
 
 # define article paths
 ARTICLE=$1
-HTML_ARTICLE=downloads/${ARTICLE}-download.html
-HTML_ARTICLE_CONVERTED=downloads/${ARTICLE}-conv.html
-MD_ARTICLE=downloads/${ARTICLE}.md
-DC_METADATA=downloads/${ARTICLE}.dc.xml
+ARTICLE_DIR=articles/${ARTICLE}
+HTML_ARTICLE=${ARTICLE_DIR}/${ARTICLE}-download.html
+HTML_ARTICLE_CONVERTED=${ARTICLE_DIR}/${ARTICLE}-conv.html
+MD_ARTICLE=${ARTICLE_DIR}/${ARTICLE}.md
+DC_METADATA=${ARTICLE_DIR}/${ARTICLE}.dc.xml
 
-# ensure the downloads directory exists
-mkdir -p downloads
+# ensure the articles directory exists
+mkdir -p ${ARTICLE_DIR}
 
 # download the article and convert it to utf8 encoding
 ARTICLE_HTML_URL=
@@ -26,6 +27,9 @@ cp ${HTML_ARTICLE} ${HTML_ARTICLE_CONVERTED}
 
 # eliminate standalone P with non-breaking space
 perl -i -pe 's/<[P|p]>&nbsp;<\/[P|p]>//g' ${HTML_ARTICLE_CONVERTED}
+
+# convert <P><BR> to <P>
+perl -i -pe 's/<p><br>/<p>/i' ${HTML_ARTICLE_CONVERTED}
 
 # substitute rouge 3/4 symbols with commas
 perl -i -pe 's/ ?<FONT FACE="Symbol">¾<\/FONT>/,/g' ${HTML_ARTICLE_CONVERTED}
@@ -57,5 +61,5 @@ pandoc ${HTML_ARTICLE_CONVERTED} -o ${MD_ARTICLE}
 rm ${HTML_ARTICLE_CONVERTED}
 
 # update article
-./update-article $ARTICLE
+scripts/update-article $ARTICLE
 
