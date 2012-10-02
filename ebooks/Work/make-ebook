@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -e
+
+EBOOK_NAME=$1
+shift
+
+
+pandoc -S --epub-metadata=metadata.xml -o ${EBOOK_NAME}.epub title.txt "$@"
+
+pandoc -o ${EBOOK_NAME}.pdf "$@"
+
+pandoc -o ${EBOOK_NAME}.html --standalone --table-of-contents "$@"
