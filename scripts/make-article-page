@@ -1,0 +1,14 @@
+#!/bin/bash
+
+set -e
+
+# define article paths
+ARTICLE=317
+MD_ARTICLE=${ARTICLE}.md
+HTML_ARTICLE=${ARTICLE}.html
+
+pandoc -s --smart --ascii --base-header-level=2 \
+       --template="page-template.html" \
+       --variable=citation:"March 1937, 1, 4." \
+       --toc \
+       ${MD_ARTICLE} -o ${HTML_ARTICLE}
