@@ -9,6 +9,7 @@ HTML_ARTICLE=${ARTICLE_DIR}/${ARTICLE}-download.html
 HTML_ARTICLE_CONVERTED=${ARTICLE_DIR}/${ARTICLE}-conv.html
 MD_ARTICLE=${ARTICLE_DIR}/${ARTICLE}.md
 DC_METADATA=${ARTICLE_DIR}/${ARTICLE}.dc.xml
+MD_METADATA=${ARTICLE_DIR}/${ARTICLE}.meta.md
 
 # ensure the articles directory exists
 mkdir -p ${ARTICLE_DIR}
@@ -59,6 +60,24 @@ perl -i -pe 's/^<\/strong><p>/<p>/i' ${HTML_ARTICLE_CONVERTED}
 # convert to markdown and remove the temporary converted file
 pandoc ${HTML_ARTICLE_CONVERTED} -o ${MD_ARTICLE}
 rm ${HTML_ARTICLE_CONVERTED}
+
+# parse the dublin core metadata for title, author, and date
+rdom () { local IFS=\> ; read -d \< E C ;}
+while rdom; do
+    if [[ $E = "dc:title" ]]; then
+        echo "% $C"
+    elif [[ $E = "dc:author"  ]]; then
+    	echo "% $C"
+    elif [[ $E = "dc:date" ]]; then
+    	echo "% $C"
+    fi
+done < ${DC_METADATA} > ${MD_METADATA}
+
+# add the metadata to the markdown file
+echo "" >> ${MD_METADATA}
+cat ${MD_ARTICLE} >> ${MD_METADATA}
+mv ${MD_METADATA} ${MD_ARTICLE}
+
 
 # update article
 scripts/update-article $ARTICLE
