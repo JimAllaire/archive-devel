@@ -71,8 +71,6 @@ while rdom; do
         echo "% $C"
     elif [[ $E = "dc:author"  ]]; then
     	echo "% $C"
-    elif [[ $E = "dc:date" ]]; then
-    	echo "% $C"
     fi
 done < ${DC_METADATA} > ${MD_METADATA}
 
