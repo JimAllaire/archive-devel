@@ -27,6 +27,5 @@ pandoc --smart --ascii --base-header-level=1 \
 # generate the main page for the article
 pandoc -s --smart --ascii --base-header-level=2 \
        --template=${ARTICLE_MAIN_TEMPLATE} \
-       --variable=title:"Placeholder for Title" \
        --variable=article:${ARTICLE} \
        ${MD_ARTICLE} -o ${ARTICLE_MAIN_PAGE}
