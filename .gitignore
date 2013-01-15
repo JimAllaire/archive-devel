@@ -1,11 +1,9 @@
-
 .DS_Store
 downloads/
-
 archive-devel.tmproj
-
 ebook/*.pdf
 ebook/*.epub
 ebook/*.html
-
 .Rproj.user
+.Rhistory
+archive-devel.Rproj
