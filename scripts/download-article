@@ -23,6 +23,9 @@ curl http://www.catholicworker.org/dorothyday/HTMLoutput.cfm?TextID=${ARTICLE} |
 curl http://www.catholicworker.org/dorothyday/DublinCoreOutput.cfm?TextID=${ARTICLE} | \
    iconv -f iso-8859-1 -t utf-8  > ${DC_METADATA}
 
+# remove spaces from dublin core metadata
+perl -i -pe 's/^\s*$//i' ${DC_METADATA}
+
 # make a copy of the originally downloaded file for conversion
 cp ${HTML_ARTICLE} ${HTML_ARTICLE_CONVERTED}
 
