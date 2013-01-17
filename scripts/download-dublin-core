@@ -1,0 +1,19 @@
+#!/bin/bash
+
+set -e
+
+# define article paths
+ARTICLE=$1
+ARTICLE_DIR=archive/source
+DC_METADATA=${ARTICLE_DIR}/${ARTICLE}.dc.xml
+
+# download the dublin core metadata
+curl http://www.catholicworker.org/dorothyday/DublinCoreOutput.cfm?TextID=${ARTICLE} | \
+   iconv -f iso-8859-1 -t utf-8  > ${DC_METADATA}
+
+# remove italics from The Catholic Worker
+perl -i -pe 's/<I>The Catholic Worker<\/I>/The Catholic Worker/i' ${DC_METADATA}
+
+# remove spaces from dublin core metadata
+perl -i -pe 's/^\s*$//i' ${DC_METADATA}
+
