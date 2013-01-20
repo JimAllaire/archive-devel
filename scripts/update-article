@@ -19,7 +19,7 @@ rm -f ${DOCX_ARTICLE}
 pandoc ${MD_ARTICLE} -o ${PDF_ARTICLE}
 
 # convert to html
-pandoc ${MD_ARTICLE} -o ${HTML_ARTICLE}
+pandoc -s ${MD_ARTICLE} -o ${HTML_ARTICLE}
 
 #convert to docx
 pandoc ${MD_ARTICLE} -o ${DOCX_ARTICLE}
