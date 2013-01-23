@@ -15,13 +15,14 @@ rm -f ${PDF_ARTICLE}
 rm -f ${HTML_ARTICLE}
 rm -f ${DOCX_ARTICLE}
 
-#convert to pdf
-pandoc ${MD_ARTICLE} -o ${PDF_ARTICLE}
-
 # convert to html
 pandoc -s ${MD_ARTICLE} -o ${HTML_ARTICLE}
 
 #convert to docx
 pandoc ${MD_ARTICLE} -o ${DOCX_ARTICLE}
+
+#convert to pdf
+pandoc ${MD_ARTICLE} -o ${PDF_ARTICLE}
+
 
 
