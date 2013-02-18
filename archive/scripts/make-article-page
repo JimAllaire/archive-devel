@@ -4,10 +4,10 @@ set -e
 
 # get a reference to the article's markdown file 
 ARTICLE=$1
-MD_ARTICLE=../source/${ARTICLE}.md
+MD_ARTICLE=source/${ARTICLE}.md
 
 # paths to use for publishing the page and related documents
-ARTICLE_DIR=../www/articles/${ARTICLE}
+ARTICLE_DIR=www/articles/${ARTICLE}
 mkdir -p ${ARTICLE_DIR}
 ARTICLE_MAIN_PAGE=${ARTICLE_DIR}/index.html
 ARTICLE_MARKDOWN=${ARTICLE_DIR}/${ARTICLE}.md
@@ -15,7 +15,7 @@ ARTICLE_PDF=${ARTICLE_DIR}/${ARTICLE}.pdf
 ARTICLE_HTML=${ARTICLE_DIR}/${ARTICLE}.html
 
 # define templates to use for conversions
-ARTICLE_MAIN_TEMPLATE=../templates/article-main.html
+ARTICLE_MAIN_TEMPLATE=templates/article.html
 
 # do some comversions to markdown and pdf
 cp ${MD_ARTICLE} ${ARTICLE_MARKDOWN}
