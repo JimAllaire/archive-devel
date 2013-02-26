@@ -1,0 +1,24 @@
+Working Menu Bar
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="brand" a href="index.html">Dorothy Day Collection</a>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          <li class="active"><a  href="index.html">Home</a></li>
+          <li class="active"><a  href="index.html">Browse</a></li>
+          <li class="active"><a  href="index.html">Search</a></li>
+          <li class="active"><a  href="index.html">About</a></li>
+          <li class="active"><a  href="index.html">Help</a></li>
+        </ul>
+        
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+</div>
