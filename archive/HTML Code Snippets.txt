@@ -1,0 +1,9 @@
+HTML Code Snippets
+
+**To remove error "can't find favicon" Put in main header.
+
+<link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+
+Eg: <meta name="description" content="{{ site.description }}">
+<link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+<link href="/css/cerulean.css" rel="stylesheet">
